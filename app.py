@@ -1,7 +1,6 @@
 from pathlib import Path
 import streamlit as st
 from PIL import Image
-import plotly.graph_objects as go
 import streamlit.components.v1 as components
 import smtplib
 from email.mime.text import MIMEText
@@ -643,4 +642,5 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
