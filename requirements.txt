@@ -1,5 +1,6 @@
 streamlit
 Pillow
-requests
-plotly
+streamlit-components
+
+
 
