@@ -1,6 +1,7 @@
 from pathlib import Path
 import streamlit as st
 from PIL import Image
+import plotly.graph_objects as go
 import streamlit.components.v1 as components
 import smtplib
 from email.mime.text import MIMEText
@@ -29,21 +30,22 @@ PROJECTS = {
     "Gestión de Venta de Lotes": {
         "desc": "Streamlit + SQL Cloud para automatización de ventas de lotes.",
         "link": "https://gestionventalotes.streamlit.app/",
-        "img": "https://img.icons8.com/ios-filled/50/000000/sales-performance.png",
-        "tech": ["Python", "SQL", "Streamlit"],
+        "img": "https://img.icons8.com/color/48/real-estate.png",
+        "tech": ["Python", "SQL", "Streamlit", "Git/GitHub", "VS Code"],
     },
-    "Dashboards Comerciales": {
-        "desc": "Dashboards interactivos con Python y Streamlit para monitoreo comercial.",
-        "link": "",
-        "img": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
-        "tech": ["Python", "Streamlit"],
+    "Sistema Analítico de Accidentes de Tránsito – Perú 2020–2021": {
+        "desc": "Dashboard analítico con visualizaciones y mapas sobre accidentes de tránsito en Perú.",
+        "link": "https://accidentestransito.streamlit.app/",
+        "img": "https://img.icons8.com/color/96/traffic-light.png",
+        "tech": ["Python", "Streamlit", "Git/GitHub", "VS Code"],
     },
-    "Automatización de Procesos": {
-        "desc": "Scripts en Python para automatización de procesos repetitivos.",
-        "link": "",
-        "img": "https://cdn-icons-png.flaticon.com/512/876/876232.png",
-        "tech": ["Python"],
-    },
+    # ,
+    # "Automatización de Procesos": {
+    #     "desc": "Scripts en Python para automatización de procesos repetitivos.",
+    #     "link": "",
+    #     "img": "https://cdn-icons-png.flaticon.com/512/876/876232.png",
+    #     "tech": ["Python"],
+    # },
 }
 
 # -------------------------
@@ -642,5 +644,4 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
 
