@@ -214,10 +214,8 @@ with hero_col2:
     )
     st.markdown(
         """
-    Especialista en <b>Business Intelligence</b> con fuertes habilidades en 
-    <b>Python</b>, <b>SQL</b>, Estadística, Matemática y Estrategia Empresarial. 
-    Amplia experiencia en Análisis de Datos y gestión estratégica, permitiendo a los 
-    negocios transformar información en decisiones oportunas y eficaces.
+    Especialista en <b>Business Intelligence</b>, poseo habilidades destacadas en <b>Estadística, Matematica, Programacion y Estrategia Empresarial</b>. 
+    Amplia experiencia en Análisis de Datos y gestión estratégica, impulsando la medición de operaciones y la toma de decisiones oportunas basadas en datos.
     """,
         unsafe_allow_html=True,
     )
@@ -472,14 +470,27 @@ with col_a:
                 "Capacité al personal administrativo en el uso de Dashboards de Power BI.",
             ],
         },
+        {
+            "title": "Practicante de Análisis de Datos y Automatización",
+            "company": "Grupo Credigama",
+            "period": "02/2022 – 12/2022",
+            "details": [
+                "Desarrollé y administré reportes interactivos en Power BI, facilitando el análisis de indicadores operativos y comerciales.",
+                "Gestioné el entorno Azure y Microsoft 365, administrando licencias, asignando usuarios y garantizando la seguridad de los datos.",
+                "Desarrollé aplicaciones empresariales con Power Apps, automatizando flujos de trabajo y optimizando procesos interno.",
+                "Automatizé reportes y flujos de trabajo en Excel, mejorando la eficiencia y reduciendo tiempos de ejecución.",
+            ],
+        },
     ]
-    for item in timeline:
-        st.markdown(
-            f"**{item['title']}**  •  _{item['company']}_   |   `{item['period']}`"
-        )
-        for detail in item["details"]:
-            st.markdown(f"- {detail}")
-        st.markdown("---")
+    # Crear una pestaña por experiencia
+    tabs = st.tabs([item["title"] for item in timeline])
+
+    for tab, item in zip(tabs, timeline):
+        with tab:
+            st.markdown(f"**{item['company']}**, Lima  \n`{item['period']}`")
+            for detail in item["details"]:
+                st.markdown(f"- {detail}")
+                
     st.markdown("</div>", unsafe_allow_html=True)
 
 with col_b:
@@ -563,6 +574,7 @@ skills = {
     "Git/GitHub": 70,
     "Excel": 70,
     "Power BI": 50,
+    "Power Apps": 50,
 }
 
 cols = st.columns(3)
@@ -643,5 +655,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
