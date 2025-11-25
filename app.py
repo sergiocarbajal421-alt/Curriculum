@@ -460,17 +460,6 @@ with col_a:
             ],
         },
         {
-            "title": "Analista de Datos",
-            "company": "Apu Runa",
-            "period": "02/2025 – 04/2025",
-            "details": [
-                "Realicé análisis estadísticos con Python para estimar el consumo de combustible, con lo que se logró detectar irregularidades.",
-                "Desarrolle y administre Bases de Datos SQL Server lo que permitió tener un almacén de datos bien estructurado y seguro.",
-                "Desarrolle Dashboards en Power Bi lo que permitió medir nuestras operaciones en tiempo real.",
-                "Capacité al personal administrativo en el uso de Dashboards de Power BI.",
-            ],
-        },
-        {
             "title": "Practicante de Análisis de Datos y Automatización",
             "company": "Grupo Credigama",
             "period": "02/2022 – 12/2022",
@@ -655,6 +644,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 
