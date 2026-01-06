@@ -214,7 +214,7 @@ with hero_col2:
     )
     
     words = [
-        "Python", "SQL DB", "Azure","Blob Storage","VS Code" ,
+        "Python", "SQL DB", "Azure","Blob Storage","VS Code" ,"Virtual Environment",
         "ETL Pipelines", "Git/GitHub", "Automation",
         "Business Intelligence", "Supply Chain Analytics", "Cloud Computing",
     ]
@@ -436,5 +436,6 @@ st.markdown("</div>", unsafe_allow_html=True)
 # FOOTER
 # -------------------------
 st.markdown('<div class="footer">© 2026 Sergio Carbajal — Data & Automation Engineer</div>', unsafe_allow_html=True)
+
 
 
