@@ -13,7 +13,7 @@ resume_file = current_dir / "CV_SergioCarbajal.pdf"
 profile_pic = current_dir / "profile-pic.png"
 
 # -------------------------
-# METADATOS ACTUALIZADOS
+# METADATOS ACTUALIZADOS SEGÚN CV
 # -------------------------
 PAGE_TITLE = "Portafolio | Sergio Carbajal - Data & Automation Engineer"
 PAGE_ICON = "⚙️"
@@ -21,151 +21,273 @@ NAME = "Sergio Carbajal"
 EMAIL = "SergioCarbajal421@gmail.com"
 
 SOCIAL_MEDIA = {
-    "LinkedIn": "https://www.linkedin.com/in/sergiocarbajal/",
+    "LinkedIn": "https://www.linkedin.com/in/sergiocarbajalromero/",
     "GitHub": "https://github.com/sergiocarbajal421-alt",
 }
 
-# -------------------------
-# CONFIGURACIÓN DE PÁGINA
-# -------------------------
-st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON, layout="wide")
+PROJECTS = {
+    "Aplicación Web para gestión de Lotes": {
+        "desc": "Sistema Full-stack con Streamlit + SQL Cloud para automatización de inventario y trazabilidad de activos.",
+        "link": "https://gestionventalotes.streamlit.app/",
+        "img": "https://img.icons8.com/color/48/real-estate.png",
+        "tech": ["Python", "SQL Cloud", "Streamlit", "Git/GitHub"],
+    },
+    "Sistema Analítico de Accidentes – Perú": {
+        "desc": "Pipeline de datos y Dashboard interactivo sobre accidentes de tránsito (2020-2021) con mapas de calor.",
+        "link": "https://accidentestransito.streamlit.app/",
+        "img": "https://img.icons8.com/color/96/traffic-light.png",
+        "tech": ["Python", "Pandas", "Streamlit", "Visualización"],
+    },
+}
 
 # -------------------------
-# CSS AVANZADO (DISEÑO INDUSTRIAL/TECNOLÓGICO)
+# CONFIG
 # -------------------------
-st.markdown("""
+st.set_page_config(
+    page_title=PAGE_TITLE,
+    page_icon=PAGE_ICON,
+    layout="wide",
+    initial_sidebar_state="collapsed",
+)
+
+# -------------------------
+# CARGA ARCHIVOS
+# -------------------------
+try:
+    with open(resume_file, "rb") as f:
+        PDFbyte = f.read()
+    profile_img = Image.open(profile_pic)
+except Exception as e:
+    st.error(f"Error cargando recursos: {e}")
+    PDFbyte = None
+    profile_img = None
+
+# -------------------------
+# CSS CORPORATIVO (MANTENIDO)
+# -------------------------
+st.markdown(
+    """
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap');
-    
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
     :root {
-        --primary: #005b96;
-        --secondary: #008b8b;
-        --dark: #0f172a;
+        --primary:#005b96;
+        --secondary:#008b8b;
+        --text-dark:#1a1a1a;
+        --text-medium:#374151;
+        --text-light:#6b7280;
+        --bg-light:#f8fafc;
     }
-
-    /* Contenedores de tarjetas con efecto de elevación */
-    .card {
-        background: #ffffff;
-        border-radius: 15px;
-        padding: 25px;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-        margin-bottom: 20px;
-    }
-    .card:hover { transform: translateY(-5px); border-color: var(--secondary); }
-    
-    .name-text { font-size: 48px; font-weight: 800; color: var(--primary); margin-bottom: 0px; }
-    .tagline { font-size: 22px; color: var(--secondary); font-weight: 600; font-family: 'JetBrains Mono', monospace; }
-    
-    /* Estilo de botones */
-    .stButton>button {
-        border-radius: 10px;
-        background-color: var(--primary);
-        color: white;
-        font-weight: 600;
-        width: 100%;
-    }
+    html, body, [class*="css"] { font-family: 'Inter', sans-serif; color: var(--text-dark); background-color: #ffffff; }
+    .stApp { background-color: #ffffff; }
+    .name { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--primary); margin: 0; }
+    .card { background: #f9fafb; border-radius: 12px; margin-bottom: 15px; padding: 18px; transition: all 0.25s ease; box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
+    .project-card { display:flex; gap:16px; align-items:center; }
+    .project-card img { width:58px; height:58px; border-radius:10px; object-fit:cover; }
+    .footer { color: var(--text-light); text-align:center; padding:20px 0 40px 0; font-size:14px; }
+    .btn-primary { background: #005b96; color: #ffffff !important; padding: 10px 18px; border-radius: 10px; font-weight: 600; text-decoration: none; display: inline-block; }
     </style>
-    """, unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True,
+)
 
 # -------------------------
-# HERO SECTION (CON INTERACTIVIDAD)
+# HERO SECTION
 # -------------------------
-h_col1, h_col2 = st.columns([1, 2], gap="large")
+hero_col1, hero_col2 = st.columns([1.1, 2.2], gap="medium")
+with hero_col1:
+    if profile_img:
+        st.image(profile_img, width=250)
 
-with h_col1:
-    if profile_pic.exists():
-        st.image(Image.open(profile_pic), width=280)
+with hero_col2:
+    st.markdown(f'<h1 class="name">{NAME}</h1>', unsafe_allow_html=True)
+    st.markdown(
+        f"""
+    <div style="margin-top:5px; font-size:18px; font-weight:600; color:var(--secondary);">
+        Ingeniero Empresarial | Data & Automation Engineer
+    </div>
+    <div style="margin-top:10px;font-size:14px;color:#374151;">
+        📍 Lima, Perú | 📞 +51 901 439 762 | ✉️ {EMAIL}
+    </div>
+    <div style="margin-top:15px; line-height:1.6;">
+        Ingeniero con sólida formación en <b>arquitectura de datos y automatización</b>. 
+        Especialista en transformar tareas manuales ineficientes en <b>pipelines de datos automatizados</b> utilizando Python y SQL Cloud.
+        Enfocado en soluciones escalables y medición de operaciones críticas.
+    </div>
+    """,
+        unsafe_allow_html=True,
+    )
 
-with h_col2:
-    st.markdown(f'<h1 class="name-text">{NAME}</h1>', unsafe_allow_html=True)
-    st.markdown('<p class="tagline">Data & Automation Engineer</p>', unsafe_allow_html=True)
-    
-    # Efecto Typewriter actualizado con tu nuevo Stack [cite: 54, 55]
-    words = ["Python", "SQL Cloud", "Azure", "ETL Pipelines", "Automation", "Stored Procedures"]
-    text_to_type = " - ".join(words)
-    
-    components.html(f"""
-        <div style="font-family:'JetBrains Mono',monospace; font-size:18px; color:#475569;">
-            <span id="typewriter"></span><span style="border-right:2px solid var(--secondary); animation: blink 0.7s infinite;"></span>
+    # Typewriter con Stack Técnico del CV
+    words = ["Python", "SQL Cloud", "Azure", "T-SQL", "ETL Pipelines", "Automation", "Stored Procedures"]
+    text_typewriter = " - ".join(words)
+
+    components.html(
+        f"""
+        <div style="font-size:18px; color:#374151; margin-top:8px; font-weight:500; font-family:'Inter', sans-serif;">
+            <span id="typewriter"></span>
         </div>
         <script>
-            const text = "{text_to_type}";
-            let i = 0;
-            function type() {{
-                if (i < text.length) {{
-                    document.getElementById('typewriter').innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, 80);
-                }}
+        const text = "{text_typewriter}";
+        let i = 0;
+        const typeWriter = () => {{
+            const el = document.getElementById('typewriter');
+            if (i <= text.length) {{
+                el.innerHTML = text.substring(0, i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }} else {{
+                setTimeout(() => {{ i = 0; typeWriter(); }}, 3000);
             }}
-            type();
+        }};
+        typeWriter();
         </script>
-        <style> @keyframes blink {{ 50% {{ opacity: 0; }} }} </style>
-    """, height=40)
+        """,
+        height=50,
+    )
 
-    st.markdown(f"""
-    **Ingeniero Empresarial** especializado en la arquitectura de sistemas de datos y optimización de procesos críticos[cite: 33, 37]. 
-    Experto en digitalización *end-to-end*, migrando operaciones manuales a infraestructuras en la nube con un enfoque en escalabilidad[cite: 38, 46].
-    """)
+    btns = st.columns([1.2, 1, 1.5])
+    with btns[0]:
+        if PDFbyte:
+            st.download_button(label="📄 Descargar CV Técnico", data=PDFbyte, file_name="CV_SergioCarbajal_Engineer.pdf", mime="application/pdf")
+    with btns[1]:
+        st.markdown(f'<a class="btn-primary" href="mailto:{EMAIL}">✉️ Contactar</a>', unsafe_allow_html=True)
+    with btns[2]:
+        sm_html = '<div class="social-links" style="margin-top:10px;">'
+        for name, link in SOCIAL_MEDIA.items():
+            sm_html += f'<a href="{link}" target="_blank" style="margin-right:15px; color:#005b96; font-weight:600; text-decoration:none;">{name}</a>'
+        st.markdown(sm_html + '</div>', unsafe_allow_html=True)
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+# -------------------------
+# INDICADORES (MÉTRICAS ANIMADAS)
+# -------------------------
+# Datos calculados según el nuevo CV
+components.html(
+    """
+    <style>
+    .stats-wrap { display: flex; gap: 20px; justify-content: flex-start; flex-wrap: wrap; font-family: 'Inter', sans-serif; }
+    .stat-card { flex: 1; min-width: 220px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 18px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    .stat-icon { background: linear-gradient(135deg, #008b8b, #005b96); color: #fff; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px; font-weight: 700; }
+    .stat-title { font-weight: 600; color: #0f172a; font-size: 14px; }
+    .stat-value { font-size: 20px; font-weight: 800; color: #005b96; }
+    </style>
+    <div class="stats-wrap">
+        <div class="stat-card">
+            <div><div class="stat-title">Optimización Tiempo</div><div style="font-size:11px; color:#6b7280;">Procesos masivos</div></div>
+            <div class="stat-value" data-target="88">0</div><div class="stat-value">%</div>
+        </div>
+        <div class="stat-card">
+            <div><div class="stat-title">Digitalización Cloud</div><div style="font-size:11px; color:#6b7280;">Registros físicos a Azure</div></div>
+            <div class="stat-value" data-target="100">0</div><div class="stat-value">%</div>
+        </div>
+        <div class="stat-card">
+            <div><div class="stat-title">Integridad de Datos</div><div style="font-size:11px; color:#6b7280;">Reducción de duplicidad</div></div>
+            <div class="stat-value" data-target="95">0</div><div class="stat-value">%</div>
+        </div>
+    </div>
+    <script>
+    const counters = document.querySelectorAll('.stat-value[data-target]');
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            if (count < target) {
+                counter.innerText = Math.ceil(count + (target/50));
+                setTimeout(updateCount, 30);
+            } else { counter.innerText = target; }
+        };
+        updateCount();
+    });
+    </script>
+    """,
+    height=100,
+)
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+# -------------------------
+# EXPERIENCIA Y PROYECTOS (ACTUALIZADO CON CV)
+# -------------------------
+col_a, col_b = st.columns([2.2, 1.2], gap="large")
+
+with col_a:
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.subheader("💼 Experiencia Técnica en Ingeniería")
     
-    st.write(f"📍 Lima, Perú | 📞 +51 901 439 762 | ✉️ {EMAIL}")
+    tab_exp1, tab_exp2 = st.tabs(["🚀 Visiva (Actualidad)", "⚙️ Credigama (Consultoría)"])
+
+    with tab_exp1:
+        st.markdown("**Data & Automation Developer** | Grupo Educativo Visiva")
+        st.markdown("`Mayo 2025 – Noviembre 2025`")
+        st.markdown("- **Ingeniería de Automatización:** Procesamiento masivo con Python, optimizando tiempos de **3 horas a 20 minutos**.")
+        st.markdown("- **Desarrollo Analítico:** Dashboards interactivos web para monitoreo operativo en tiempo real.")
+        st.markdown("- **Infraestructura:** Migración estratégica a **SQL Cloud**, garantizando integridad y disponibilidad.")
+        st.markdown("- **Open Source:** Soluciones escalables sin costos adicionales de licenciamiento.")
+
+    with tab_exp2:
+        st.markdown("**Arquitectura de Datos & Automatización** | Grupo Credigama")
+        st.markdown("`Febrero 2022 – Abril 2024`")
+        st.markdown("- **Arquitectura Cloud:** Diseño e implementación en **Azure (SQL DB & Blob Storage)**, digitalizando el 100% de registros físicos.")
+        st.markdown("- **Lógica de Servidor:** Programación de **Stored Procedures y Views** en T-SQL, eliminando duplicidad en un 95%.")
+        st.markdown("- **Desarrollo App-to-Cloud:** Aplicaciones en Power Apps con registro en campo reducido en un 70%.")
+        st.markdown("- **BI Automático:** Ecosistema Power BI con modelado directo a BD y latencia cero.")
+        
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with col_b:
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.subheader("🚀 Proyectos de Ingeniería")
+    for project, data in PROJECTS.items():
+        st.markdown(f"""
+        <div class="project-card">
+            <img src="{data['img']}" alt="icon"/>
+            <div>
+                <div style="font-weight:700; color:var(--primary); font-size:14px;">{project}</div>
+                <div style="color:var(--text-medium); font-size:12px; margin-top:4px;">{data['desc']}</div>
+                <div style="margin-top:6px;"><a href="{data['link']}" target="_blank" style="color:var(--secondary); font-weight:700; text-decoration:none; font-size:12px;">Ver Pipeline →</a></div>
+            </div>
+        </div>
+        <hr style="border:0; border-top:1px solid #e5e7eb; margin:10px 0;">
+        """, unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 # -------------------------
-# INDICADORES DE IMPACTO (MÉTRICAS)
+# EDUCACIÓN / FORMACIÓN
 # -------------------------
-st.markdown("### 📊 Impacto de Ingeniería")
-m1, m2, m3, m4 = st.columns(4)
-m1.metric("Optimización de Procesos", "88%", "De 3h a 20min") [cite: 41]
-m2.metric("Digitalización Operativa", "100%", "Papel ➔ Azure") [cite: 46]
-m3.metric("Eficiencia en Campo", "70%", "vía Power Apps") [cite: 48]
-m4.metric("Integridad de Datos", "95%", "Menos duplicidad") [cite: 47]
+st.markdown('<div class="card">', unsafe_allow_html=True)
+st.subheader("🎓 Formación Profesional")
+t1, t2 = st.tabs(["Grado Académico", "Especializaciones Técnicas"])
 
-# -------------------------
-# CUERPO PRINCIPAL
-# -------------------------
-c_main, c_side = st.columns([2, 1], gap="large")
+with t1:
+    st.markdown("**Egresado de Ingeniería Empresarial**")
+    st.markdown("_Universidad Privada del Norte (2025)_")
+    st.markdown("- Enfoque en optimización de procesos y estrategia basada en datos.")
 
-with c_main:
-    st.subheader("🛠 Experiencia Técnica")
-    
-    # VISIVA [cite: 40, 41, 42, 43, 44]
-    with st.expander("🚀 Data & Automation Developer | Grupo Educativo Visiva", expanded=True):
-        st.markdown("""
-        - **Automatización de Alto Impacto:** Reducción de tiempos de procesamiento de **3 horas a 20 minutos** mediante scripts avanzados en Python[cite: 41].
-        - **Arquitectura de Datos:** Lideré la migración estratégica hacia **SQL Cloud**, asegurando la disponibilidad total de activos de información[cite: 43].
-        - **Dashboards de Ingeniería:** Desarrollo de visualizaciones en tiempo real para el monitoreo de métricas críticas[cite: 42].
-        """)
-
-    # CREDIGAMA [cite: 45, 46, 47, 48, 49]
-    with st.expander("⚙️ Arquitectura de Datos & Automatización | Grupo Credigama"):
-        st.markdown("""
-        - **Despliegue Cloud:** Diseño e implementación de infraestructura en **Azure (SQL DB & Blob Storage)** para la digitalización del 100% de registros físicos[cite: 46].
-        - **Lógica de Servidor:** Programación de **Stored Procedures y Views** en T-SQL para garantizar la integridad referencial de los datos[cite: 47].
-        - **Ecosistema App-to-Cloud:** Implementación de Power Apps integradas a la base de datos para gestión de cobranza en tiempo real[cite: 48].
-        """)
-
-with c_side:
-    st.subheader("⚙️ Stack Tecnológico")
-    # Barras de habilidades interactivas [cite: 54, 55, 56]
-    skills = {"Python (Automation)": 95, "SQL (T-SQL)": 90, "Azure Infrastructure": 75, "ETL / Pipelines": 80}
-    for s, v in skills.items():
-        st.write(f"{s}")
-        st.progress(v)
+with t2:
+    st.markdown("- **Especialización en Supply Chain Analytics con Python**")
+    st.markdown("- **Especialización en Análisis y Visualización de Datos**")
+    st.markdown("- Especialista en Machine Learning y Planeamiento Estratégico.")
+st.markdown("</div>", unsafe_allow_html=True)
 
 # -------------------------
-# CIERRE Y CONTACTO
+# STACK TÉCNICO (GRÁFICO)
 # -------------------------
-st.markdown("---")
-st.subheader("🚀 Proyectos Destacados")
-p1, p2 = st.columns(2)
-with p1:
-    st.info("**Gestión de Venta de Lotes**")
-    st.write("Aplicación Full-stack para control de inventario y trazabilidad técnica de activos[cite: 60].")
-with p2:
-    st.info("**Sistema Analítico de Accidentes**")
-    st.write("Pipeline de datos procesando registros históricos para análisis de patrones de riesgo[cite: 59].")
+st.markdown('<div class="card">', unsafe_allow_html=True)
+st.subheader("🛠 Stack Tecnológico")
+col_s1, col_s2, col_s3 = st.columns(3)
 
-# Footer corporativo
-st.markdown(f"<center style='color:#64748b;'>© 2025 {NAME} | Ingeniero de Datos | Construyendo el futuro de la automatización</center>", unsafe_allow_html=True)
+with col_s1:
+    st.markdown("**Avanzado**")
+    st.progress(95, text="Python & SQL")
+    st.progress(90, text="VS Code")
+with col_s2:
+    st.markdown("**Intermedio**")
+    st.progress(75, text="Azure Infrastructure")
+    st.progress(70, text="Git / GitHub")
+with col_s3:
+    st.markdown("**Herramientas BI**")
+    st.progress(50, text="Power BI & Apps")
+    st.progress(50, text="Excel Técnico")
+st.markdown("</div>", unsafe_allow_html
