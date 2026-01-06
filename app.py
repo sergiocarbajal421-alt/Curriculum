@@ -372,7 +372,7 @@ with col_a:
         {
             "title": "Arquitectura de Datos & Automatización",
             "company": "Grupo Credigama",
-            "period": "01/2022 – Actualidad",
+            "period": "01/2023 – Actualidad",
             "details": [
                 "**Arquitectura Cloud:** Diseñé e implementé la infraestructura en Azure (SQL DB & Blob Storage), migrando el 100% de registros físicos a un entorno relacional.",
                 "**Modelado y Lógica:** Programé Stored Procedures y Views en T-SQL, optimizando la integridad de datos y eliminando errores de duplicidad en un 95%.",
@@ -437,6 +437,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 # FOOTER
 # -------------------------
 st.markdown('<div class="footer">© 2026 Sergio Carbajal — Data & Automation Engineer</div>', unsafe_allow_html=True)
+
 
 
 
