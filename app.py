@@ -423,8 +423,8 @@ skills_dict = {
     "Azure Cloud": 75, 
     "Git/GitHub": 75, 
     "VS Code": 80, 
-    "Power BI": 50, 
-    "Excel": 50
+    "Power BI": 70, 
+    "Excel": 70
 }
 skill_cols = st.columns(4)
 for i, (skill, val) in enumerate(skills_dict.items()):
@@ -437,6 +437,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 # FOOTER
 # -------------------------
 st.markdown('<div class="footer">© 2026 Sergio Carbajal — Data & Automation Engineer</div>', unsafe_allow_html=True)
+
 
 
 
