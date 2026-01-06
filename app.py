@@ -104,22 +104,22 @@ with hero_col2:
     st.markdown(
         f"""
     <div style="margin-top:5px; font-size:18px; font-weight:600; color:var(--secondary);">
-        Ingeniero Empresarial | Data & Automation Engineer
+        Ingeniero Empresarial | Data & Automation Engineer [cite: 32, 33]
     </div>
     <div style="margin-top:10px;font-size:14px;color:#374151;">
-        📍 Lima, Perú | 📞 +51 901 439 762 | ✉️ {EMAIL}
+        📍 Lima, Perú | 📞 +51 901 439 762 | ✉️ {EMAIL} [cite: 34, 36]
     </div>
     <div style="margin-top:15px; line-height:1.6;">
-        Ingeniero con sólida formación en <b>arquitectura de datos y automatización</b>. 
-        Especialista en transformar tareas manuales ineficientes en <b>pipelines de datos automatizados</b> utilizando Python y SQL Cloud.
-        Enfocado en soluciones escalables y medición de operaciones críticas.
+        Ingeniero con sólida formación en <b>arquitectura de datos y automatización</b>. [cite: 37] 
+        Especialista en transformar tareas manuales ineficientes en <b>pipelines de datos automatizados</b> utilizando Python y SQL Cloud. [cite: 38]
+        Enfocado en soluciones escalables y medición de operaciones críticas. [cite: 39]
     </div>
     """,
         unsafe_allow_html=True,
     )
 
     # Typewriter con Stack Técnico del CV
-    words = ["Python", "SQL Cloud", "Azure", "T-SQL", "ETL Pipelines", "Automation", "Stored Procedures"]
+    words = ["Python", "SQL Cloud", "Azure", "T-SQL", "ETL Pipelines", "Automation", "Stored Procedures"] [cite: 38, 46, 47, 54, 55]
     text_typewriter = " - ".join(words)
 
     components.html(
@@ -216,23 +216,23 @@ with col_a:
     st.markdown('<div class="card">', unsafe_allow_html=True)
     st.subheader("💼 Experiencia Técnica en Ingeniería")
     
-    tab_exp1, tab_exp2 = st.tabs(["🚀 Visiva (Actualidad)", "⚙️ Credigama (Consultoría)"])
+    tab_exp1, tab_exp2 = st.tabs(["🚀 Visiva (Actualidad)", "⚙️ Credigama (Consultoría)"]) [cite: 40, 45]
 
     with tab_exp1:
-        st.markdown("**Data & Automation Developer** | Grupo Educativo Visiva")
-        st.markdown("`Mayo 2025 – Noviembre 2025`")
-        st.markdown("- **Ingeniería de Automatización:** Procesamiento masivo con Python, optimizando tiempos de **3 horas a 20 minutos**.")
-        st.markdown("- **Desarrollo Analítico:** Dashboards interactivos web para monitoreo operativo en tiempo real.")
-        st.markdown("- **Infraestructura:** Migración estratégica a **SQL Cloud**, garantizando integridad y disponibilidad.")
-        st.markdown("- **Open Source:** Soluciones escalables sin costos adicionales de licenciamiento.")
+        st.markdown("**Data & Automation Developer** | Grupo Educativo Visiva [cite: 40]")
+        st.markdown("`Mayo 2025 – Noviembre 2025` [cite: 40]")
+        st.markdown("- **Ingeniería de Automatización:** Procesamiento masivo con Python, optimizando tiempos de **3 horas a 20 minutos**. ")
+        st.markdown("- **Desarrollo Analítico:** Dashboards interactivos web para monitoreo operativo en tiempo real. [cite: 42]")
+        st.markdown("- **Infraestructura:** Migración estratégica a **SQL Cloud**, garantizando integridad y disponibilidad. [cite: 43]")
+        st.markdown("- **Open Source:** Soluciones escalables sin costos adicionales de licenciamiento. ")
 
     with tab_exp2:
-        st.markdown("**Arquitectura de Datos & Automatización** | Grupo Credigama")
-        st.markdown("`Febrero 2022 – Abril 2024`")
-        st.markdown("- **Arquitectura Cloud:** Diseño e implementación en **Azure (SQL DB & Blob Storage)**, digitalizando el 100% de registros físicos.")
-        st.markdown("- **Lógica de Servidor:** Programación de **Stored Procedures y Views** en T-SQL, eliminando duplicidad en un 95%.")
-        st.markdown("- **Desarrollo App-to-Cloud:** Aplicaciones en Power Apps con registro en campo reducido en un 70%.")
-        st.markdown("- **BI Automático:** Ecosistema Power BI con modelado directo a BD y latencia cero.")
+        st.markdown("**Arquitectura de Datos & Automatización** | Grupo Credigama ")
+        st.markdown("`Febrero 2022 – Abril 2024` ")
+        st.markdown("- **Arquitectura Cloud:** Diseño e implementación en **Azure (SQL DB & Blob Storage)**, digitalizando el 100% de registros físicos. ")
+        st.markdown("- **Lógica de Servidor:** Programación de **Stored Procedures y Views** en T-SQL, eliminando duplicidad en un 95%. [cite: 47]")
+        st.markdown("- **Desarrollo App-to-Cloud:** Aplicaciones en Power Apps con registro en campo reducido en un 70%. [cite: 48]")
+        st.markdown("- **BI Automático:** Ecosistema Power BI con modelado directo a BD y latencia cero. [cite: 49]")
         
     st.markdown("</div>", unsafe_allow_html=True)
 
@@ -258,16 +258,16 @@ with col_b:
 # -------------------------
 st.markdown('<div class="card">', unsafe_allow_html=True)
 st.subheader("🎓 Formación Profesional")
-t1, t2 = st.tabs(["Grado Académico", "Especializaciones Técnicas"])
+t1, t2 = st.tabs(["Grado Académico", "Especializaciones Técnicas"]) [cite: 51, 52]
 
 with t1:
-    st.markdown("**Egresado de Ingeniería Empresarial**")
-    st.markdown("_Universidad Privada del Norte (2025)_")
-    st.markdown("- Enfoque en optimización de procesos y estrategia basada en datos.")
+    st.markdown("**Egresado de Ingeniería Empresarial** [cite: 51]")
+    st.markdown("_Universidad Privada del Norte (2025)_ [cite: 51]")
+    st.markdown("- Enfoque en optimización de procesos y estrategia basada en datos.") [cite: 51]
 
 with t2:
-    st.markdown("- **Especialización en Supply Chain Analytics con Python**")
-    st.markdown("- **Especialización en Análisis y Visualización de Datos**")
+    st.markdown("- **Especialización en Supply Chain Analytics con Python** [cite: 52]")
+    st.markdown("- **Especialización en Análisis y Visualización de Datos** [cite: 53]")
     st.markdown("- Especialista en Machine Learning y Planeamiento Estratégico.")
 st.markdown("</div>", unsafe_allow_html=True)
 
@@ -279,15 +279,40 @@ st.subheader("🛠 Stack Tecnológico")
 col_s1, col_s2, col_s3 = st.columns(3)
 
 with col_s1:
-    st.markdown("**Avanzado**")
-    st.progress(95, text="Python & SQL")
-    st.progress(90, text="VS Code")
+    st.markdown("**Avanzado** [cite: 54]")
+    st.progress(95, text="Python & SQL") [cite: 54]
+    st.progress(90, text="VS Code") [cite: 54]
 with col_s2:
-    st.markdown("**Intermedio**")
-    st.progress(75, text="Azure Infrastructure")
-    st.progress(70, text="Git / GitHub")
+    st.markdown("**Intermedio** [cite: 55]")
+    st.progress(75, text="Azure Infrastructure") [cite: 55]
+    st.progress(70, text="Git / GitHub") [cite: 55]
 with col_s3:
-    st.markdown("**Herramientas BI**")
-    st.progress(50, text="Power BI & Apps")
-    st.progress(50, text="Excel Técnico")
-st.markdown("</div>", unsafe_allow_html
+    st.markdown("**Herramientas BI** [cite: 56]")
+    st.progress(50, text="Power BI & Apps") [cite: 56]
+    st.progress(50, text="Excel Técnico") [cite: 56]
+st.markdown("</div>", unsafe_allow_html=True)
+
+# -------------------------
+# CONTACTO
+# -------------------------
+st.markdown('<div class="card">', unsafe_allow_html=True)
+st.subheader("✉️ Contacto")
+with st.form("contact"):
+    c1, c2 = st.columns(2)
+    name = c1.text_input("Nombre")
+    email = c2.text_input("Correo")
+    msg = st.text_area("Mensaje sobre proyectos de automatización")
+    if st.form_submit_button("Enviar Mensaje"):
+        st.success("Formulario configurado. Mensaje listo para envío.")
+st.markdown("</div>", unsafe_allow_html=True)
+
+# -------------------------
+# FOOTER
+# -------------------------
+st.markdown(f"""
+    <div class="footer">
+        © 2026 {NAME} — Data & Automation Engineer  <br>
+        Construyendo soluciones escalables con Python, SQL y Azure. [cite: 38, 46]
+    </div>
+""", unsafe_allow_html=True)
+
