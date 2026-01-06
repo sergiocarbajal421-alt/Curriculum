@@ -21,8 +21,8 @@ NAME = "Sergio Carbajal"
 EMAIL = "SergioCarbajal421@gmail.com"
 
 SOCIAL_MEDIA = {
-    "LinkedIn": "https://www.linkedin.com/in/sergiocarbajal/",
-    "GitHub": "https://github.com/sergiocarbajal421-alt",
+    "LinkedIn":"https://www.linkedin.com/in/sergiocarbajal/",
+    "GitHub":"https://github.com/sergiocarbajal421-alt",
 }
 
 PROJECTS = {
@@ -644,3 +644,4 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
