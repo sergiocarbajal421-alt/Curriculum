@@ -363,10 +363,10 @@ with col_a:
             "company": "Grupo Educativo Visiva",
             "period": "05/2024 – Actualidad",
             "details": [
-                "Ingeniería de Automatización: Diseñé scripts en Python procesando bases masivas, reduciendo tiempos de 3 horas a 20 minutos[cite: 41].",
-                "Desarrollo de Software Analítico: Creé dashboards interactivos web (Python) para monitoreo de métricas operativas en tiempo real[cite: 42].",
-                "Infraestructura de Datos: Lideré la migración y centralización de bases de datos hacia SQL Cloud[cite: 43].",
-                "Optimización de Recursos: Implementé soluciones basadas en tecnologías open source logrando desarrollos escalables sin costos de licencia[cite: 44]."
+                "Ingeniería de Automatización: Diseñé scripts en Python procesando bases masivas, reduciendo tiempos de 3 horas a 20 minutos.",
+                "Desarrollo de Software Analítico: Creé dashboards interactivos web (Python) para monitoreo de métricas operativas en tiempo real.",
+                "Infraestructura de Datos: Lideré la migración y centralización de bases de datos hacia SQL Cloud.",
+                "Optimización de Recursos: Implementé soluciones basadas en tecnologías open source logrando desarrollos escalables sin costos de licencia."
             ],
         },
         {
@@ -374,10 +374,10 @@ with col_a:
             "company": "Grupo Credigama",
             "period": "02/2022 – 04/2024",
             "details": [
-                "Arquitectura Cloud: Diseñé e implementé infraestructura en Azure (SQL DB & Blob Storage), migrando el 100% de registros físicos[cite: 46].",
-                "Modelado y Lógica: Programé Stored Procedures y Views en T-SQL, eliminando errores de duplicidad en un 95%[cite: 47].",
-                "Desarrollo App-to-Cloud: Creé aplicaciones en Power Apps conectadas en tiempo real, reduciendo el tiempo de registro en campo en un 70%[cite: 48].",
-                "BI Automático: Desarrollé el ecosistema en Power BI con modelado directo a la base de datos con latencia cero[cite: 49]."
+                "**Arquitectura Cloud**: Diseñé e implementé infraestructura en Azure (SQL DB & Blob Storage), migrando el 100% de registros físicos.",
+                "Modelado y Lógica: Programé Stored Procedures y Views en T-SQL, eliminando errores de duplicidad en un 95%.",
+                "Desarrollo App-to-Cloud: Creé aplicaciones en Power Apps conectadas en tiempo real, reduciendo el tiempo de registro en campo en un 70%.",
+                "BI Automático: Desarrollé el ecosistema en Power BI con modelado directo a la base de datos con latencia cero."
             ],
         },
     ]
@@ -412,8 +412,8 @@ with col_b:
 st.markdown('<div class="card">', unsafe_allow_html=True)
 st.subheader("🎓 Formación")
 st.markdown("**Ingeniería Empresarial** | Universidad Privada del Norte | `Egresado 2025` ")
-st.markdown("- Especialización en **Supply Chain Analytics con Python** [cite: 52]")
-st.markdown("- Especialización en **Análisis y Visualización de Datos** [cite: 53]")
+st.markdown("- Especialización en **Supply Chain Analytics con Python**")
+st.markdown("- Especialización en **Análisis y Visualización de Datos**")
 st.markdown("---")
 st.subheader("🛠 Habilidades Técnicas")
 skills_dict = {
@@ -436,3 +436,4 @@ st.markdown("</div>", unsafe_allow_html=True)
 # FOOTER
 # -------------------------
 st.markdown('<div class="footer">© 2026 Sergio Carbajal — Data & Automation Engineer</div>', unsafe_allow_html=True)
+
