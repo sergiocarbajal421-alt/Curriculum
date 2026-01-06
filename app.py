@@ -214,8 +214,8 @@ with hero_col2:
     )
     
     words = [
-        "Python", "SQL Cloud", "Azure", "T-SQL", "Stored Procedures",
-        "ETL Pipelines", "Git/GitHub", "Power Apps", "Automation",
+        "Python", "SQL DB", "Azure","Blob Storage","VS Code" ,
+        "ETL Pipelines", "Git/GitHub", "Automation",
         "Business Intelligence", "Supply Chain Analytics", "Cloud Computing",
     ]
     text = " - ".join(words)
@@ -361,23 +361,23 @@ with col_a:
         {
             "title": "Data & Automation Developer",
             "company": "Grupo Educativo Visiva",
-            "period": "05/2024 – Actualidad",
+            "period": "05/2025 – 11/2025",
             "details": [
-                "Ingeniería de Automatización: Diseñé scripts en Python procesando bases masivas, reduciendo tiempos de 3 horas a 20 minutos.",
-                "Desarrollo de Software Analítico: Creé dashboards interactivos web (Python) para monitoreo de métricas operativas en tiempo real.",
-                "Infraestructura de Datos: Lideré la migración y centralización de bases de datos hacia SQL Cloud.",
-                "Optimización de Recursos: Implementé soluciones basadas en tecnologías open source logrando desarrollos escalables sin costos de licencia."
+                "**Ingeniería de Automatización:** Diseñé y ejecuté scripts en Python para el procesamiento masivo de 10 millones de registros, optimizando el tiempo de ejecución de 3 horas a solo 10 minutos.",
+                "**Desarrollo de Software Analítico:** Creé dashboards interactivos web (Python), facilitando el monitoreo de métricas operativas en tiempo real.",
+                "**Infraestructura de Datos:** Lideré la migración y centralización de bases de datos hacia SQL Cloud, asegurando la integridad y disponibilidad de la información.",
+                "**Optimización de Recursos:** Implementé soluciones basadas en tecnologías open source, logrando desarrollos escalables sin costos adicionales de licenciamiento."
             ],
         },
         {
             "title": "Arquitectura de Datos & Automatización",
             "company": "Grupo Credigama",
-            "period": "02/2022 – 04/2024",
+            "period": "01/2022 – Actualidad",
             "details": [
-                "**Arquitectura Cloud**: Diseñé e implementé infraestructura en Azure (SQL DB & Blob Storage), migrando el 100% de registros físicos.",
-                "Modelado y Lógica: Programé Stored Procedures y Views en T-SQL, eliminando errores de duplicidad en un 95%.",
-                "Desarrollo App-to-Cloud: Creé aplicaciones en Power Apps conectadas en tiempo real, reduciendo el tiempo de registro en campo en un 70%.",
-                "BI Automático: Desarrollé el ecosistema en Power BI con modelado directo a la base de datos con latencia cero."
+                "**Arquitectura Cloud:** Diseñé e implementé la infraestructura en Azure (SQL DB & Blob Storage), migrando el 100% de registros físicos a un entorno relacional.",
+                "**Modelado y Lógica:** Programé Stored Procedures y Views en T-SQL, optimizando la integridad de datos y eliminando errores de duplicidad en un 95%.",
+                "**Desarrollo App-to-Cloud:** Creé aplicaciones en Power Apps conectadas en tiempo real, reduciendo el tiempo de registro en campo en un 70%.",
+                "**BI Automático:** Desarrollé el ecosistema en Power BI con modelado directo a la base de datos, logrando visualización de KPIs con latencia cero."
             ],
         },
     ]
@@ -436,4 +436,5 @@ st.markdown("</div>", unsafe_allow_html=True)
 # FOOTER
 # -------------------------
 st.markdown('<div class="footer">© 2026 Sergio Carbajal — Data & Automation Engineer</div>', unsafe_allow_html=True)
+
 
