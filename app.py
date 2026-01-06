@@ -377,7 +377,8 @@ with col_a:
                 "**Arquitectura Cloud:** Diseñé e implementé la infraestructura en Azure (SQL DB & Blob Storage), migrando el 100% de registros físicos a un entorno relacional.",
                 "**Modelado y Lógica:** Programé Stored Procedures y Views en T-SQL, optimizando la integridad de datos y eliminando errores de duplicidad en un 95%.",
                 "**Desarrollo App-to-Cloud:** Creé aplicaciones en Power Apps conectadas en tiempo real, reduciendo el tiempo de registro en campo en un 70%.",
-                "**BI Automático:** Desarrollé el ecosistema en Power BI con modelado directo a la base de datos, logrando visualización de KPIs con latencia cero."
+                "**BI Automático:** Desarrollé el ecosistema en Power BI con modelado directo a la base de datos, logrando visualización de KPIs con latencia cero.",
+                "**Sostenibilidad Técnica:** Brindo consultoría y soporte continuo a la arquitectura desplegada, asegurando la escalabilidad y disponibilidad del ecosistema de datos."
             ],
         },
     ]
@@ -436,6 +437,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 # FOOTER
 # -------------------------
 st.markdown('<div class="footer">© 2026 Sergio Carbajal — Data & Automation Engineer</div>', unsafe_allow_html=True)
+
 
 
 
