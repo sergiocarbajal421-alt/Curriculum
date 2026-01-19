@@ -53,34 +53,31 @@ st.set_page_config(
 )
 
 # -------------------------
-# CARGA ARCHIVOS
+# CARGA ARCHIVOS (OPTIMIZADO)
 # -------------------------
-# -------------------------
-# CARGA ARCHIVOS (DESDE DRIVE)
-# -------------------------
-# ID de tu archivo en Drive
 FILE_ID = "1xukRqxU079e7S7hYEMHltVuEp8w8WzHz"
-# URL de descarga directa
-DIRECT_URL = f"https://docs.google.com/uc?export=download&id={FILE_ID}"
+# Añadimos confirm=t para saltar verificaciones manuales de Google
+DIRECT_URL = f"https://docs.google.com/uc?export=download&id={FILE_ID}&confirm=t"
 
-@st.cache_data
+@st.cache_data(show_spinner="Sincronizando con Azure SQL & Drive...")
 def get_pdf_data(url):
-    """Descarga el PDF y lo mantiene en memoria (RAM)"""
     try:
-        response = requests.get(url)
-        return response.content
-    except:
+        # User-Agent para evitar ser bloqueados como "Scrapers" simples
+        headers = {"User-Agent": "Mozilla/5.0"}
+        response = requests.get(url, headers=headers, timeout=15)
+        
+        # Validación de integridad: Verificamos el 'Magic Number' del PDF
+        if response.status_code == 200 and b"%PDF" in response.content[:4]:
+            return response.content
+        else:
+            # Si Google devuelve un HTML de error, esto lo detectará
+            return None
+    except Exception as e:
+        st.error(f"Error de infraestructura: {e}")
         return None
 
-# Obtenemos los bytes del PDF
 PDFbyte = get_pdf_data(DIRECT_URL)
 
-# La imagen de perfil sí la mantenemos local si la tienes en el repo
-try:
-    profile_img = Image.open(profile_pic)
-except:
-    # Imagen de respaldo por si falla la carga local
-    profile_img = None
 
 # -------------------------
 # CSS CORPORATIVO MODERNO
@@ -466,6 +463,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 # FOOTER
 # -------------------------
 st.markdown('<div class="footer">© 2026 Sergio Carbajal — Data & Automation Engineer</div>', unsafe_allow_html=True)
+
 
 
 
