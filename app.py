@@ -53,31 +53,33 @@ st.set_page_config(
 )
 
 # -------------------------
-# CARGA ARCHIVOS (OPTIMIZADO)
+# CARGA ARCHIVOS (CORREGIDO)
 # -------------------------
+# 1. Carga del PDF desde Drive
 FILE_ID = "1xukRqxU079e7S7hYEMHltVuEp8w8WzHz"
-# Añadimos confirm=t para saltar verificaciones manuales de Google
 DIRECT_URL = f"https://docs.google.com/uc?export=download&id={FILE_ID}&confirm=t"
 
-@st.cache_data(show_spinner="Sincronizando con Azure SQL & Drive...")
+@st.cache_data(show_spinner="Cargando recursos...")
 def get_pdf_data(url):
     try:
-        # User-Agent para evitar ser bloqueados como "Scrapers" simples
         headers = {"User-Agent": "Mozilla/5.0"}
         response = requests.get(url, headers=headers, timeout=15)
-        
-        # Validación de integridad: Verificamos el 'Magic Number' del PDF
         if response.status_code == 200 and b"%PDF" in response.content[:4]:
             return response.content
-        else:
-            # Si Google devuelve un HTML de error, esto lo detectará
-            return None
-    except Exception as e:
-        st.error(f"Error de infraestructura: {e}")
+        return None
+    except:
         return None
 
 PDFbyte = get_pdf_data(DIRECT_URL)
 
+# 2. Carga de la imagen de perfil (ELIMINA EL NameError)
+try:
+    # Asegúrate de que 'profile-pic.png' esté en tu carpeta de GitHub
+    profile_img = Image.open(profile_pic)
+except Exception as e:
+    # Si la imagen no carga, creamos un placeholder para que no rompa la app
+    profile_img = None
+    st.warning("No se pudo cargar la imagen de perfil local.")
 
 # -------------------------
 # CSS CORPORATIVO MODERNO
@@ -463,6 +465,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 # FOOTER
 # -------------------------
 st.markdown('<div class="footer">© 2026 Sergio Carbajal — Data & Automation Engineer</div>', unsafe_allow_html=True)
+
 
 
 
