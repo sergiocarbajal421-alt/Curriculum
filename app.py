@@ -196,7 +196,7 @@ with hero_col1:
 
 with hero_col2:
     st.markdown(f'<h1 class="name">{NAME}</h1>', unsafe_allow_html=True)
-    st.markdown('<div style="color:var(--secondary); font-weight:600; font-size:18px;">Ingeniero Empresarial | Data & Automation Engineer</div>', unsafe_allow_html=True)
+    st.markdown('<div style="color:var(--secondary); font-weight:600; font-size:18px;">Data Analytics & Automation Engineer</div>', unsafe_allow_html=True)
     st.markdown(
         f"""
     <div style="margin-top:10px;font-size:14px;color:#374151;">
@@ -207,16 +207,18 @@ with hero_col2:
     )
     st.markdown(
         """
-    Ingeniero con sólida formación en <b>arquitectura de datos, automatización de procesos y optimización operativa</b>. 
-    Especialista en transformar tareas manuales ineficientes en <b>pipelines de datos automatizados</b> utilizando Python y SQL Cloud.
+    Ingeniero con sólida formación en <b>Estadística y Desarrollo de Software</b>, con experiencia en
+    infraestructuras de datos end-to-end y automatización de procesos críticos. Especialista en escalar
+    soluciones robustas con <b>Python, SQL, Power BI, etc</b> para eliminar cuellos de botella manuales. Transformo
+    operaciones complejas en métricas accionables que impulsan la excelencia y visibilidad del negocio.
     """,
         unsafe_allow_html=True,
     )
     
     words = [
-        "Python", "SQL DB", "Azure","Blob Storage","VS Code" ,"Virtual Environment",
+        "Python", "SQL DB","Power BI" ,"Azure","Blob Storage","VS Code" ,"Virtual Environment",
         "ETL Pipelines", "Git/GitHub", "Automation",
-        "Business Intelligence", "Supply Chain Analytics", "Cloud Computing",
+        "Business Intelligence", "Cloud Computing",
     ]
     text = " - ".join(words)
 
@@ -415,27 +417,72 @@ st.markdown("**Ingeniería Empresarial** | Universidad Privada del Norte | `Egre
 st.markdown("- Especialización en **Supply Chain Analytics con Python**")
 st.markdown("- Especialización en **Análisis y Visualización de Datos**")
 st.markdown("---")
+
 st.subheader("🛠 Habilidades Técnicas")
 skills_dict = {
-    "SQL (T-SQL)": 95, 
-    "Python": 95, 
-    "Azure Cloud": 75, 
-    "Git/GitHub": 75, 
-    "VS Code": 80, 
-    "Power BI": 70, 
-    "Excel": 70
+    "Python": {"nivel": "Avanzado", "progreso": 95, "icon": "https://img.icons8.com/color/48/python.png"},
+    "SQL (T-SQL)": {"nivel": "Avanzado", "progreso": 95, "icon": "https://img.icons8.com/color/48/azure-sql-database.png"},
+    "Azure Cloud": {"nivel": "Intermedio", "progreso": 75, "icon": "https://img.icons8.com/color/48/azure-1.png"},
+    "Git/GitHub": {"nivel": "Intermedio", "progreso": 75, "icon": "https://img.icons8.com/glyph-neue/64/github.png"},
+    "VS Code": {"nivel": "Avanzado", "progreso": 85, "icon": "https://img.icons8.com/color/48/visual-studio-code-2019.png"},
+    "Power BI": {"nivel": "Intermedio", "progreso": 70, "icon": "https://img.icons8.com/color/48/power-bi.png"},
+    "Excel": {"nivel": "Intermedio", "progreso": 75, "icon": "https://img.icons8.com/color/48/microsoft-excel-2019.png"},
+    "Automation": {"nivel": "Avanzado", "progreso": 90, "icon": "https://img.icons8.com/color/48/robot-2.png"}
 }
-skill_cols = st.columns(4)
-for i, (skill, val) in enumerate(skills_dict.items()):
-    with skill_cols[i % 4]:
-        st.write(f"**{skill}**")
-        st.progress(val)
-st.markdown("</div>", unsafe_allow_html=True)
+# Estilos específicos para las tarjetas de habilidades
+st.markdown("""
+    <style>
+    .skill-card {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 15px;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        transition: transform 0.2s, border-color 0.2s;
+    }
+    .skill-card:hover {
+        transform: translateY(-2px);
+        border-color: #008b8b;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .skill-icon { width: 35px; height: 35px; }
+    .skill-info { flex-grow: 1; }
+    .skill-name { font-weight: 700; color: #1a1a1a; font-size: 14px; }
+    .skill-level { color: #008b8b; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+    .progress-bar-bg { background: #e5e7eb; border-radius: 10px; height: 6px; margin-top: 5px; }
+    .progress-bar-fill { background: #005b96; height: 6px; border-radius: 10px; }
+    </style>
+""", unsafe_allow_html=True)
+
+st.subheader("🛠️ Habilidades Técnicas")
+skill_cols = st.columns(2) # Usamos 2 columnas para que las tarjetas tengan buen tamaño
+
+for i, (skill, info) in enumerate(skills_dict.items()):
+    with skill_cols[i % 2]:
+        st.markdown(f"""
+            <div class="skill-card">
+                <img src="{info['icon']}" class="skill-icon">
+                <div class="skill-info">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="skill-name">{skill}</span>
+                        <span class="skill-level">{info['nivel']}</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: {info['progreso']}%"></div>
+                    </div>
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+
 
 # -------------------------
 # FOOTER
 # -------------------------
 st.markdown('<div class="footer">© 2026 Sergio Carbajal — Data & Automation Engineer</div>', unsafe_allow_html=True)
+
 
 
 
