@@ -429,7 +429,7 @@ skills_dict = {
     "Git/GitHub": {"nivel": "Intermedio", "progreso": 70, "icon": "https://img.icons8.com/glyph-neue/64/github.png"},
     "Power BI": {"nivel": "Intermedio", "progreso": 70, "icon": "https://img.icons8.com/color/48/power-bi.png"},
     "Excel": {"nivel": "Intermedio", "progreso": 70, "icon": "https://img.icons8.com/color/48/microsoft-excel-2019.png"},
-    "Power Apps": {"nivel": "Basico","progreso": 60,"icon": "https://img.icons8.com/color/48/microsoft-power-apps.png"},
+    "Power Apps": {"nivel": "Intermedio","progreso": 70,"icon": "https://img.icons8.com/fluency/48/microsoft-power-apps.png"},
     "Flutter": {"nivel": "Basico","progreso": 25,"icon": "https://img.icons8.com/color/48/flutter.png"}
 }
 # Estilos específicos para las tarjetas de habilidades
@@ -485,6 +485,7 @@ for i, (skill, info) in enumerate(skills_dict.items()):
 # FOOTER
 # -------------------------
 st.markdown('<div class="footer">© 2026 Sergio Carbajal — Data & Automation Engineer</div>', unsafe_allow_html=True)
+
 
 
 
