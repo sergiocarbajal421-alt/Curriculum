@@ -4,8 +4,6 @@ from PIL import Image
 import streamlit.components.v1 as components
 import smtplib
 from email.mime.text import MIMEText
-import requests
-from io import BytesIO
 
 # -------------------------
 # PATH SETTINGS (MISMO NIVEL)
@@ -53,33 +51,11 @@ st.set_page_config(
 )
 
 # -------------------------
-# CARGA ARCHIVOS (CORREGIDO)
+# CARGA ARCHIVOS
 # -------------------------
-# 1. Carga del PDF desde Drive
-FILE_ID = "1xukRqxU079e7S7hYEMHltVuEp8w8WzHz"
-DIRECT_URL = f"https://docs.google.com/uc?export=download&id={FILE_ID}&confirm=t"
-
-@st.cache_data(show_spinner="Cargando recursos...")
-def get_pdf_data(url):
-    try:
-        headers = {"User-Agent": "Mozilla/5.0"}
-        response = requests.get(url, headers=headers, timeout=15)
-        if response.status_code == 200 and b"%PDF" in response.content[:4]:
-            return response.content
-        return None
-    except:
-        return None
-
-PDFbyte = get_pdf_data(DIRECT_URL)
-
-# 2. Carga de la imagen de perfil (ELIMINA EL NameError)
-try:
-    # Asegúrate de que 'profile-pic.png' esté en tu carpeta de GitHub
-    profile_img = Image.open(profile_pic)
-except Exception as e:
-    # Si la imagen no carga, creamos un placeholder para que no rompa la app
-    profile_img = None
-    st.warning("No se pudo cargar la imagen de perfil local.")
+with open(resume_file, "rb") as f:
+    PDFbyte = f.read()
+profile_img = Image.open(profile_pic)
 
 # -------------------------
 # CSS CORPORATIVO MODERNO
@@ -277,16 +253,12 @@ with hero_col2:
 
     btns = st.columns([1, 1, 1])
     with btns[0]:
-        if PDFbyte:
-            st.download_button(
-                label="📄 Descargar CV",
-                data=PDFbyte,
-                file_name="CV_Sergio_Carbajal.pdf",
-                mime="application/pdf",
-            )
-        else:
-            st.error("Archivo no disponible")
-            
+        st.download_button(
+            label="📄 Descargar CV",
+            data=PDFbyte,
+            file_name=resume_file.name,
+            mime="application/pdf",
+        )
     with btns[1]:
         st.markdown(
             f"""
@@ -387,26 +359,25 @@ with col_a:
     st.subheader("💼 Experiencia Profesional")
     timeline = [
         {
-            "title": "Data & Automation Developer",
+            "title": "Auxiliar de Data Analytics Comercial",
             "company": "Grupo Educativo Visiva",
             "period": "05/2025 – 11/2025",
             "details": [
-                "**Ingeniería de Automatización:** Diseñé y ejecuté scripts en Python para el procesamiento masivo de 10 millones de registros, optimizando el tiempo de ejecución de 3 horas a solo 10 minutos.",
-                "**Desarrollo de Software Analítico:** Creé dashboards interactivos web (Python), facilitando el monitoreo de métricas operativas en tiempo real.",
-                "**Infraestructura de Datos:** Lideré la migración y centralización de bases de datos hacia SQL Cloud, asegurando la integridad y disponibilidad de la información.",
-                "**Optimización de Recursos:** Implementé soluciones basadas en tecnologías open source, logrando desarrollos escalables sin costos adicionales de licenciamiento."
+                "**Automatización:** Diseñé y ejecuté scripts en Python para el procesamiento masivo de 10 millones de registros, optimizando el tiempo de ejecución de 3 horas a solo 10 minutos.",
+                "**Software Analítico:** Creé dashboards interactivos web (Python), facilitando el monitoreo de métricas operativas en tiempo real.",
+                "**Infraestructura:** Lideré la migración y centralización de bases de datos hacia SQL Cloud, asegurando la integridad y disponibilidad de la información.",
+                "**Optimización:** Implementé soluciones basadas en tecnologías open source, logrando desarrollos escalables sin costos adicionales de licenciamiento."
             ],
         },
         {
-            "title": "Arquitectura de Datos & Automatización",
+            "title": "Analista de Datos & Automatización",
             "company": "Grupo Credigama",
-            "period": "01/2023 – Actualidad",
+            "period": "01/2023 – 12/2024",
             "details": [
-                "**Arquitectura Cloud:** Diseñé e implementé la infraestructura en Azure (SQL DB & Blob Storage), migrando el 100% de registros físicos a un entorno relacional.",
-                "**Modelado y Lógica:** Programé Stored Procedures y Views en T-SQL, optimizando la integridad de datos y eliminando errores de duplicidad en un 95%.",
-                "**Desarrollo App-to-Cloud:** Creé aplicaciones en Power Apps conectadas en tiempo real, reduciendo el tiempo de registro en campo en un 70%.",
-                "**BI Automático:** Desarrollé el ecosistema en Power BI con modelado directo a la base de datos, logrando visualización de KPIs con latencia cero.",
-                "**Sostenibilidad Técnica:** Brindo consultoría y soporte continuo a la arquitectura desplegada, asegurando la escalabilidad y disponibilidad del ecosistema de datos."
+                "**Arquitectura Cloud:** Implementé Azure SQL y Blob Storage con optimización de costos. Configuré seguridad de identidades y restricciones de acceso a nivel servidor.",
+                "**Modelado y Lógica:** Diseñé bases de datos normalizadas con lógica avanzada en T-SQL. Programé procedimientos almacenados y vistas para garantizar integridad y rendimiento.",
+                "**Aplicaciones:** Desarrollé soluciones en Power Apps conectadas a SQL en tiempo real. Implementé sistemas de autenticación y flujos de datos escalables.",
+                "**Inteligencia Negocio::** Desplegué reportes en Power BI mediante modelado dinámico en DAX. Conecté fuentes Cloud para la visualización de KPIs en tiempo real.",
             ],
         },
     ]
@@ -465,9 +436,6 @@ st.markdown("</div>", unsafe_allow_html=True)
 # FOOTER
 # -------------------------
 st.markdown('<div class="footer">© 2026 Sergio Carbajal — Data & Automation Engineer</div>', unsafe_allow_html=True)
-
-
-
 
 
 
