@@ -4,6 +4,8 @@ from PIL import Image
 import streamlit.components.v1 as components
 import smtplib
 from email.mime.text import MIMEText
+import requests
+from io import BytesIO
 
 # -------------------------
 # PATH SETTINGS (MISMO NIVEL)
@@ -53,9 +55,32 @@ st.set_page_config(
 # -------------------------
 # CARGA ARCHIVOS
 # -------------------------
-with open(resume_file, "rb") as f:
-    PDFbyte = f.read()
-profile_img = Image.open(profile_pic)
+# -------------------------
+# CARGA ARCHIVOS (DESDE DRIVE)
+# -------------------------
+# ID de tu archivo en Drive
+FILE_ID = "1xukRqxU079e7S7hYEMHltVuEp8w8WzHz"
+# URL de descarga directa
+DIRECT_URL = f"https://docs.google.com/uc?export=download&id={FILE_ID}"
+
+@st.cache_data
+def get_pdf_data(url):
+    """Descarga el PDF y lo mantiene en memoria (RAM)"""
+    try:
+        response = requests.get(url)
+        return response.content
+    except:
+        return None
+
+# Obtenemos los bytes del PDF
+PDFbyte = get_pdf_data(DIRECT_URL)
+
+# La imagen de perfil sí la mantenemos local si la tienes en el repo
+try:
+    profile_img = Image.open(profile_pic)
+except:
+    # Imagen de respaldo por si falla la carga local
+    profile_img = None
 
 # -------------------------
 # CSS CORPORATIVO MODERNO
@@ -253,12 +278,16 @@ with hero_col2:
 
     btns = st.columns([1, 1, 1])
     with btns[0]:
-        st.download_button(
-            label="📄 Descargar CV",
-            data=PDFbyte,
-            file_name=resume_file.name,
-            mime="application/pdf",
-        )
+        if PDFbyte:
+            st.download_button(
+                label="📄 Descargar CV",
+                data=PDFbyte,
+                file_name="CV_Sergio_Carbajal.pdf",
+                mime="application/pdf",
+            )
+        else:
+            st.error("Archivo no disponible")
+            
     with btns[1]:
         st.markdown(
             f"""
@@ -437,6 +466,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 # FOOTER
 # -------------------------
 st.markdown('<div class="footer">© 2026 Sergio Carbajal — Data & Automation Engineer</div>', unsafe_allow_html=True)
+
 
 
 
