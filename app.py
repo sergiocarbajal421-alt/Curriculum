@@ -409,25 +409,26 @@ with col_b:
     st.markdown("</div>", unsafe_allow_html=True)
 
 # -------------------------
-# EDUCACIÓN / HABILIDADES
+# EDUCACIÓN 
 # -------------------------
 st.markdown('<div class="card">', unsafe_allow_html=True)
 st.subheader("🎓 Formación")
 st.markdown("**Ingeniería Empresarial** | Universidad Privada del Norte | `Egresado 2025` ")
 st.markdown("- Especialización en **Supply Chain Analytics con Python**")
 st.markdown("- Especialización en **Análisis y Visualización de Datos**")
-st.markdown("---")
 
-st.subheader("🛠 Habilidades Técnicas")
+# -------------------------
+# HABILIDADES
+# -------------------------
+st.markdown('<div class="card">', unsafe_allow_html=True)
 skills_dict = {
-    "Python": {"nivel": "Avanzado", "progreso": 95, "icon": "https://img.icons8.com/color/48/python.png"},
-    "SQL (T-SQL)": {"nivel": "Avanzado", "progreso": 95, "icon": "https://img.icons8.com/color/48/azure-sql-database.png"},
-    "Azure Cloud": {"nivel": "Intermedio", "progreso": 75, "icon": "https://img.icons8.com/color/48/azure-1.png"},
-    "Git/GitHub": {"nivel": "Intermedio", "progreso": 75, "icon": "https://img.icons8.com/glyph-neue/64/github.png"},
-    "VS Code": {"nivel": "Avanzado", "progreso": 85, "icon": "https://img.icons8.com/color/48/visual-studio-code-2019.png"},
+    "Python": {"nivel": "Avanzado", "progreso": 90, "icon": "https://img.icons8.com/color/48/python.png"},
+    "SQL (T-SQL)": {"nivel": "Avanzado", "progreso": 90, "icon": "https://img.icons8.com/color/48/microsoft-sql-server.png"},
+    "Azure Cloud": {"nivel": "Intermedio", "progreso": 70, "icon": "https://img.icons8.com/color/48/azure-1.png"},
+    "Git/GitHub": {"nivel": "Intermedio", "progreso": 70, "icon": "https://img.icons8.com/glyph-neue/64/github.png"},
+    "VS Code": {"nivel": "Avanzado", "progreso": 80, "icon": "https://img.icons8.com/color/48/visual-studio-code-2019.png"},
     "Power BI": {"nivel": "Intermedio", "progreso": 70, "icon": "https://img.icons8.com/color/48/power-bi.png"},
-    "Excel": {"nivel": "Intermedio", "progreso": 75, "icon": "https://img.icons8.com/color/48/microsoft-excel-2019.png"},
-    "Automation": {"nivel": "Avanzado", "progreso": 90, "icon": "https://img.icons8.com/color/48/robot-2.png"}
+    "Excel": {"nivel": "Intermedio", "progreso": 70, "icon": "https://img.icons8.com/color/48/microsoft-excel-2019.png"}
 }
 # Estilos específicos para las tarjetas de habilidades
 st.markdown("""
@@ -458,10 +459,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.subheader("🛠️ Habilidades Técnicas")
-skill_cols = st.columns(2) # Usamos 2 columnas para que las tarjetas tengan buen tamaño
+skill_cols = st.columns(3) # Usamos 2 columnas para que las tarjetas tengan buen tamaño
 
 for i, (skill, info) in enumerate(skills_dict.items()):
-    with skill_cols[i % 2]:
+    with skill_cols[i % 3]:
         st.markdown(f"""
             <div class="skill-card">
                 <img src="{info['icon']}" class="skill-icon">
@@ -482,6 +483,7 @@ for i, (skill, info) in enumerate(skills_dict.items()):
 # FOOTER
 # -------------------------
 st.markdown('<div class="footer">© 2026 Sergio Carbajal — Data & Automation Engineer</div>', unsafe_allow_html=True)
+
 
 
 
