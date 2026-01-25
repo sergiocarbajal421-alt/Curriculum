@@ -424,12 +424,12 @@ st.markdown('<div class="card">', unsafe_allow_html=True)
 skills_dict = {
     "Inglés": {"nivel": "Intermedio (B1)","progreso": 70,"icon": "https://img.icons8.com/color/48/great-britain-circular.png"},
     "Python": {"nivel": "Avanzado", "progreso": 90, "icon": "https://img.icons8.com/color/48/python.png"},
-    "SQL (T-SQL)": {"nivel": "Avanzado", "progreso": 90, "icon": "https://img.icons8.com/color/48/microsoft-sql-server.png"},
-    "VS Code": {"nivel": "Avanzado", "progreso": 80, "icon": "https://img.icons8.com/color/48/visual-studio-code-2019.png"},
-    "Azure Cloud": {"nivel": "Intermedio", "progreso": 70, "icon": "https://img.icons8.com/color/48/azure-1.png"},
+    "SQL": {"nivel": "Avanzado", "progreso": 90, "icon": "https://img.icons8.com/color/48/microsoft-sql-server.png"},
+    "Power BI": {"nivel": "Avanzado", "progreso": 90, "icon": "https://img.icons8.com/color/48/power-bi.png"},
+    "Excel": {"nivel": "Avanzado", "progreso": 90, "icon": "https://img.icons8.com/color/48/microsoft-excel-2019.png"},
+    "VS Code": {"nivel": "Intermedio", "progreso": 80, "icon": "https://img.icons8.com/color/48/visual-studio-code-2019.png"},
+    "Azure": {"nivel": "Intermedio", "progreso": 70, "icon": "https://img.icons8.com/color/48/azure-1.png"},
     "Git/GitHub": {"nivel": "Intermedio", "progreso": 70, "icon": "https://img.icons8.com/glyph-neue/64/github.png"},
-    "Power BI": {"nivel": "Intermedio", "progreso": 70, "icon": "https://img.icons8.com/color/48/power-bi.png"},
-    "Excel": {"nivel": "Intermedio", "progreso": 70, "icon": "https://img.icons8.com/color/48/microsoft-excel-2019.png"},
     "Power Apps": {"nivel": "Intermedio","progreso": 70,"icon": "https://img.icons8.com/fluency/48/microsoft-power-apps.png"},
     "Flutter": {"nivel": "Basico","progreso": 25,"icon": "https://img.icons8.com/color/48/flutter.png"}
 }
@@ -486,6 +486,7 @@ for i, (skill, info) in enumerate(skills_dict.items()):
 # FOOTER
 # -------------------------
 st.markdown('<div class="footer">© 2026 Sergio Carbajal — Data & Automation Engineer</div>', unsafe_allow_html=True)
+
 
 
 
